@@ -1,0 +1,556 @@
+/*!
+Theme Name: Lincolnshire Pork Co
+Theme URI: https://lincolnshireporkco.co.uk
+Author: the Urban Feather team
+Author URI: https://urbanfeather.com
+Description: A fully editable theme for Lincolnshire Pork Co.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: lincolnshireporkco
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/ /*!
+ * Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Gill Sans Bold";
+  src: url("../fonts/Gill-Sans/Gill Sans Bold.otf");
+}
+
+@font-face {
+  font-family: "Gill Sans SemiBold";
+  src: url("../fonts/Gill-Sans/Gill Sans Medium.otf");
+}
+
+@font-face {
+  font-family: "Gill Sans Regular";
+  src: url("../fonts/Gill-Sans/Gill Sans.otf");
+}
+
+@font-face {
+  font-family: "Gill Sans Light";
+  src: url("../fonts/Gill-Sans/Gill Sans Light.otf");
+}
+
+@font-face {
+  font-family: "ALTERNATE GOTHIC COMPRESSED ATF";
+  src: url("../fonts/alternate-gothic-cond-atf-bold/alternate-gothic-cond-atf-bold.otf");
+}
+
+@font-face {
+  font-family: "Calibri Bold";
+  src: url("../fonts/calibri font/Calibri Bold.TTF");
+}
+
+@font-face {
+  font-family: "Calibri Regular";
+  src: url("../fonts/calibri font/Calibri Regular.TTF");
+}
+
+/* default styles  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --transparent: transparent;
+  --lincolnshireSky: #72b0bd;
+  --slate: #3f4444;
+  --farmhousegreen: #a0ab4d;
+  --redArrow: #ef6079;
+  --blackPepper: #a39382;
+  --mustard: #ed9b33;
+}
+
+.section-starts {
+  margin-top: 60px;
+}
+
+.inner-container {
+  max-width: 1290px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main-header {
+  position: fixed;
+  z-index: 90;
+  width: 100%;
+}
+
+.main-header::after {
+  content: "";
+  background-image: url(../images/white-cloud.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  transform-origin: bottom;
+  z-index: 1;
+}
+.main-header::before {
+  content: "";
+  background-image: url(../images/pale-clouds.png);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  z-index: 1;
+  transform-origin: bottom;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+}
+
+.nav-link {
+  position: relative;
+  height: 100%;
+  cursor: pointer;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  width: 60%;
+  background-color: white;
+  height: 2px;
+}
+
+/* mobile menu styles  */
+
+.mobile-menu {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-duration: 0.5s;
+}
+.mobile-menu .icon {
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 3px;
+  width: 30px;
+  background-color: white;
+}
+.mobile-menu .icon:before {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  content: "";
+  top: -10px;
+}
+.mobile-menu .icon:after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background-color: white;
+  content: "";
+  top: 10px;
+}
+.mobile-menu.open .icon {
+  transition-duration: 0.5s;
+  transform: rotateZ(180deg);
+}
+.mobile-menu.open .icon:before {
+  width: 20px;
+  transform: rotateZ(-45deg) scaleX(0.75) translate(-10px, 0px);
+}
+.mobile-menu.open .icon:after {
+  width: 20px;
+  transform: rotateZ(45deg) scaleX(0.75) translate(-10px, 0px);
+}
+.mobile-menu:hover {
+  cursor: pointer;
+}
+
+.mobile-nav-container {
+  width: 50%;
+  height: 80%;
+  background-color: var(--slate);
+  right: 1rem;
+  top: 185px;
+  transform: translateX(500px);
+  transition: all 0.5s;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.mobile-nav-container.open {
+  display: block;
+  transform: translateX(0px);
+  transition: all 0.5s;
+  visibility: visible;
+  pointer-events: all;
+  position: fixed;
+  z-index: 9999;
+}
+
+.mobile-nav-links .mobile-nav-link {
+  position: relative;
+  cursor: pointer;
+}
+.mobile-nav-links .mobile-nav-link:hover::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  width: 60%;
+  background-color: white;
+  height: 2px;
+}
+
+/* End of mobile menu styles  */
+
+.hero-slider-container {
+  z-index: 1;
+  height: 500px;
+  margin-top: 10rem;
+  overflow: hidden;
+}
+
+.slider {
+  position: relative;
+}
+
+.slider-arrows,
+.products-slider-arrows {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 103%;
+  cursor: pointer;
+}
+
+.slide {
+  transform: translateX(5000px);
+  transition: all 0.5s ease-in-out;
+}
+
+.slide-image {
+  transform: translateX(-5000px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+.slide-content {
+  transform: translateX(5000px);
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.slide.active {
+  transform: translateX(0px);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.slide.active .slide-image,
+.slide.active .slide-content {
+  transform: translateX(0px);
+  opacity: 1;
+  transition: all 0.5s ease-in-out;
+}
+
+.products-slide {
+  display: none;
+}
+
+.product-image-container img {
+  filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.386));
+}
+.pigs {
+  position: relative;
+}
+.pigs::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 60%;
+  height: 5px;
+  left: 0;
+  filter: blur(20px);
+  background-color: #000;
+}
+
+.products-thumbnail {
+  position: relative;
+}
+
+.products-slider-thumbnails {
+  display: flex;
+  overflow-x: auto;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.products-slider-thumbnails .products-thumbnail {
+  width: 120px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.products-thumbnail.active {
+  transform: scale(1.3);
+  transition: all 0.3s ease-in-out;
+}
+
+/* .products-thumbnail.active::after {
+   content: "";
+   width: 60%;
+   height: 5px;
+   background-color: #72b0bd;
+   position: absolute;
+   bottom: -10px;
+   left: 50%;
+   transform: translate(-50%, -50%);
+ } */
+
+.grid-item {
+  transform: translateY(500px);
+  opacity: 0;
+}
+
+/* footer styles  */
+
+footer {
+  padding-top: 2rem;
+}
+
+.footer-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.footer-main-bg {
+  width: 100%;
+}
+
+.bg-fans {
+  position: absolute;
+  top: 2%;
+  right: 2%;
+  height: fit-content;
+  width: 10rem;
+}
+
+.footer-bg .birds {
+  position: absolute;
+  top: -10%;
+  left: 4%;
+  width: 2rem;
+  display: flex;
+}
+
+.footer-bg .birds svg:nth-child(1) {
+  margin-top: 2rem;
+}
+
+.footer-bg .birds svg:nth-child(3) {
+  margin-top: 2rem;
+}
+
+/* alphabetic order styles  */
+
+.alpha-list-wrapper,
+#no-match {
+  display: none;
+}
+
+.alpha-list-wrapper.active,
+#no-match.active {
+  display: block;
+}
+
+#alpha-nav {
+  padding-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.alpha-list-group li {
+  width: 10rem;
+  height: auto;
+  object-fit: cover;
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  padding: 1rem;
+}
+.alpha-list-group li img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 1rem;
+}
+
+#alpha-list {
+  margin-top: 2rem;
+}
+
+.alpha-list-group {
+  display: flex;
+  gap: 1rem;
+}
+
+.character-element {
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  /*     font-size: 1.2em; */
+  line-height: 1;
+  white-space: nowrap;
+  padding: 5px 6px;
+  color: #005f97;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background: #020024;
+  background: linear-gradient(180deg, #020024 0%, #f8fdff 0%, #e1e1e1 100%);
+}
+
+@media (max-width: 767px) {
+  .character-element {
+    padding: calc(100% / 50);
+    margin: calc(100% / 50);
+    min-width: calc(100% / 15);
+  }
+}
+
+.character-element:not(.disabled):hover,
+.character-element:not(.disabled):active {
+  background: #ccc;
+  cursor: pointer;
+}
+
+.character-element.disabled {
+  color: #aaa;
+  cursor: default;
+}
+
+.character-element.active {
+  background: #ddd;
+}
+
+@media (min-width: 768px) {
+  .section-starts {
+    margin-top: 100px;
+  }
+  .main-header::after {
+    bottom: -60px;
+  }
+
+  .bg-fans {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 20rem;
+    height: 100%;
+  }
+
+  .bg-fan-1 svg {
+    transform: rotateY(20deg);
+  }
+
+  .footer-bg .birds {
+    position: absolute;
+    top: -5%;
+    left: 4%;
+    width: 5rem;
+    display: flex;
+  }
+
+  .footer-bg .birds svg:nth-child(1) {
+    /* -webkit-transform: scaleX(-1);
+     transform: scaleX(-1); */
+    margin-top: 2rem;
+  }
+
+  .footer-bg .birds svg:nth-child(3) {
+    /* -webkit-transform: scaleX(-1);
+     transform: scaleX(-1); */
+    margin-top: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .main-header {
+    position: relative;
+  }
+  .hero-slider-container {
+    z-index: 1;
+    height: 500px;
+    margin-top: -5rem;
+    z-index: 91;
+    overflow: hidden;
+  }
+
+  .product-hero-slider-container {
+    z-index: 1;
+    height: 100%;
+    margin-top: -5rem;
+    z-index: 91;
+  }
+  .bg-fans {
+    position: absolute;
+    top: 8%;
+    right: 2%;
+    width: 30rem;
+    height: fit-content;
+    transform-origin: center;
+  }
+
+  .footer-bg .birds {
+    position: absolute;
+    top: -5%;
+    left: 4%;
+    width: 8rem;
+    display: flex;
+  }
+
+  .footer-bg .birds svg:nth-child(1) {
+    margin-top: 5rem;
+  }
+
+  .footer-bg .birds svg:nth-child(3) {
+    margin-top: 5rem;
+  }
+}
+
+@media (min-width: 2000px) {
+  .bg-fans {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 45rem;
+    height: fit-content;
+  }
+}
