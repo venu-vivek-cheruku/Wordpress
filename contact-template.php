@@ -1,5 +1,7 @@
-<?php get_header(); ?>
-
+<?php 
+/* Template Name: Contact  Template */
+get_header();
+?>
 
 <?php 
 //  custom Fields
@@ -16,8 +18,7 @@
 if($slider == 'true')
 get_template_part( 'content', 'slider' ); ?>
 
-
-      <!-- Introduction Container  -->
+<!-- Introduction Container  -->
 <?php if($headerText) : ?>
       <section
         class="mt-20 mb-20 intrdoduction-container mx-auto max-w-2xl text-slate"
@@ -39,11 +40,30 @@ get_template_part( 'content', 'slider' ); ?>
 
 <?php if($shortCode) : ?>
       <section
-        class="mt-20 mb-20 intrdoduction-container mx-auto max-w-2xl text-slate"
+        class="mt-20 mb-20 intrdoduction-container mx-auto text-slate hidden"
       >
         <div class="inner-container">
-         <?php echo do_shortCode($shortCode) ?> 
-        </div>
+			<div class="contact-form-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 place-content-center">
+				<div class="contact-form "> <?php echo do_shortCode($shortCode) ?> </div>
+				<div class="contact-image w-full md:pt-0">
+					<?php if (has_post_thumbnail( $post->ID ) ): 
+            $thumbnail = get_the_post_thumbnail_url();
+            ?>
+            <img class="w-3/4 object-contain mx-auto" src="<?php echo $thumbnail ?>" alt="" /> 
+					<?php endif; ?>
+				</div>
+			</div>
+    	</div>
+      </section>
+      <section
+        class="mt-20 mb-20 intrdoduction-container mx-auto text-slate"
+      >
+        <div class="inner-container">
+			<div class="contact-form-container ">
+				<div class="contact-form "> <?php echo do_shortCode($shortCode) ?> </div>
+				
+			</div>
+    	</div>
       </section>
       <?php endif; ?>
 

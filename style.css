@@ -71,6 +71,29 @@ Use it to make something cool, have fun, and share what you've learned with othe
   --redArrow: #ef6079;
   --blackPepper: #a39382;
   --mustard: #ed9b33;
+  --footerGreen: #395442;
+}
+
+.bg-lincolnshireSky {
+  background-color: var(--lincolnshireSky);
+}
+.bg-slate {
+  background-color: var(--slate);
+}
+.bg-redArrow {
+  background-color: var(--redArrow);
+}
+.bg-blackPepper {
+  background-color: var(--blackPepper);
+}
+.bg-mustard {
+  background-color: var(--mustard);
+}
+.bg-farmhousegreen {
+  background-color: var(--farmhousegreen);
+}
+.bg-footerGreen {
+  background-color: var(--footerGreen);
 }
 
 .section-starts {
@@ -81,6 +104,25 @@ Use it to make something cool, have fun, and share what you've learned with othe
   max-width: 1290px;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.blocks-widgets-container
+  .wp-block-widget-area__inner-blocks.editor-styles-wrapper
+  > .block-editor-block-list__layout {
+  margin-top: -48px;
+  padding: 72px 16px 16px;
+  min-height: 32px;
+  color: white !important;
+  background-color: #3f4444 !important;
+}
+
+.wp-block-social-links.is-style-logos-only .wp-social-link a {
+  padding: 0;
+  color: white;
+}
+
+p {
+  margin-top: 1rem;
 }
 
 .main-header {
@@ -191,7 +233,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
   height: 80%;
   background-color: var(--slate);
   right: 1rem;
-  top: 185px;
+  top: 160px;
   transform: translateX(500px);
   transition: all 0.5s;
   visibility: hidden;
@@ -230,15 +272,27 @@ Use it to make something cool, have fun, and share what you've learned with othe
   overflow: hidden;
 }
 
+.stockists-container {
+  margin-top: 14rem;
+}
+
 .slider {
   position: relative;
 }
 
-.slider-arrows,
-.products-slider-arrows {
+.slider-arrows {
   position: absolute;
   left: 50%;
   top: 50%;
+  transform: translate(-50%, -50%);
+  width: 103%;
+  cursor: pointer;
+}
+
+.products-slider-arrows {
+  position: absolute;
+  left: 50%;
+  top: 35%;
   transform: translate(-50%, -50%);
   width: 103%;
   cursor: pointer;
@@ -332,8 +386,14 @@ Use it to make something cool, have fun, and share what you've learned with othe
  } */
 
 .grid-item {
-  transform: translateY(500px);
+  transform: translateY(150px);
   opacity: 0;
+}
+
+@media (max-width: 1026px) {
+  .grid-item:nth-last-child(1) {
+    grid-column: span 2 / span 2;
+  }
 }
 
 /* footer styles  */
@@ -377,90 +437,26 @@ footer {
   margin-top: 2rem;
 }
 
-/* alphabetic order styles  */
+/* .contact-form {
+  height: 50rem;
+} */
 
-.alpha-list-wrapper,
-#no-match {
-  display: none;
+.blocks-widgets-container
+  .wp-block-widget-area__inner-blocks.editor-styles-wrapper
+  > .block-editor-block-list__layout {
+  margin-top: -48px;
+  padding: 72px 16px 16px;
+  min-height: 32px;
+  background-color: var(--slate) !important;
 }
 
-.alpha-list-wrapper.active,
-#no-match.active {
-  display: block;
+.nf-form-cont {
+  font-family: "Gill Sans SemiBold" !important;
+  max-width: 800px !important;
+  margin: 0 auto;
 }
 
-#alpha-nav {
-  padding-top: 15px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-top: 1rem;
-}
-
-.alpha-list-group li {
-  width: 10rem;
-  height: auto;
-  object-fit: cover;
-  background-color: gainsboro;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  padding: 1rem;
-}
-.alpha-list-group li img {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 1rem;
-}
-
-#alpha-list {
-  margin-top: 2rem;
-}
-
-.alpha-list-group {
-  display: flex;
-  gap: 1rem;
-}
-
-.character-element {
-  position: relative;
-  text-decoration: none;
-  text-align: center;
-  /*     font-size: 1.2em; */
-  line-height: 1;
-  white-space: nowrap;
-  padding: 5px 6px;
-  color: #005f97;
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  background: #020024;
-  background: linear-gradient(180deg, #020024 0%, #f8fdff 0%, #e1e1e1 100%);
-}
-
-@media (max-width: 767px) {
-  .character-element {
-    padding: calc(100% / 50);
-    margin: calc(100% / 50);
-    min-width: calc(100% / 15);
-  }
-}
-
-.character-element:not(.disabled):hover,
-.character-element:not(.disabled):active {
-  background: #ccc;
-  cursor: pointer;
-}
-
-.character-element.disabled {
-  color: #aaa;
-  cursor: default;
-}
-
-.character-element.active {
-  background: #ddd;
-}
-
-@media (min-width: 768px) {
+@media (min-width: 750px) {
   .section-starts {
     margin-top: 100px;
   }
@@ -474,6 +470,10 @@ footer {
     right: 0%;
     width: 20rem;
     height: 100%;
+  }
+
+  .stockists-container {
+    margin-top: 15rem;
   }
 
   .bg-fan-1 svg {
@@ -511,6 +511,10 @@ footer {
     margin-top: -5rem;
     z-index: 91;
     overflow: hidden;
+  }
+
+  .stockists-container {
+    margin-top: 5rem;
   }
 
   .product-hero-slider-container {
@@ -553,4 +557,72 @@ footer {
     width: 45rem;
     height: fit-content;
   }
+}
+
+/*****************************************************************
+	A-Z Filter
+******************************************************************/
+
+#title-status {
+  float: left;
+  width: 100%;
+}
+#title-status p {
+  float: left;
+  width: 50%;
+  margin-bottom: 15px;
+  color: var(--slate);
+  font-family: "Gill Sans SemiBold";
+  font-size: 16px;
+}
+#title-status span {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#title-status p:last-child {
+  text-align: right;
+  text-decoration: underline;
+  color: var(--slate);
+  font-family: "Gill Sans SemiBold";
+  cursor: pointer;
+}
+
+#a-z {
+  width: 100%;
+  margin-bottom: 25px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+ul#a-z li {
+  flex-grow: 1;
+  padding: 7px;
+  text-align: center;
+  background: #dadbdc;
+  color: #fff;
+  text-transform: uppercase;
+  border-left: 2px solid #fff;
+}
+ul#a-z li.active {
+  background: #9c9c9c;
+  cursor: pointer;
+}
+
+ul#a-z li.current {
+  background: var(--lincolnshireSky);
+}
+ul#a-z li:first-child {
+  border: 0px none;
+}
+
+#posts-results li {
+  display: none;
+}
+#posts-results li.show {
+  display: block;
+}
+#posts-results a {
+  border-bottom: 1px solid #ccc;
+  display: block;
+  padding: 10px 0;
 }

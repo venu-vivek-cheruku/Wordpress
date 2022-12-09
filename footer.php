@@ -1,4 +1,4 @@
-<?php wp_footer(); ?>
+
 
 <?php
     //Appearance Config
@@ -556,7 +556,7 @@
           class="footer-content absolute -bottom-48 bg-footerGreen w-full left-0 overflow-hidden"
         >
           <div
-            class="inner-container footer-contents grid grid-cols-2 lg:grid-cols-4 place-content-start items-end text-white space-y-5"
+            class="inner-container footer-contents grid grid-cols-2 lg:grid-cols-4 place-content-start items-center text-white space-y-5"
           >
             <div class="footer-logo-container w-3/5 mx-auto">
               <img src="<?php echo get_template_directory_uri(  )?>/images/footer-logo.png" alt="" />
@@ -625,7 +625,12 @@
       </div>
     </footer>
 
+
+    
+
  
   </body>
 
 </html>
+
+<?php wp_footer(); ?>

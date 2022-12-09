@@ -1,94 +1,455 @@
 <?php
 	//Custom Fields
-  $benefitMainTitle = get_field('title');
-  $benefitSubTitle = get_field('sub_title');
-  $benefitOneImage = get_field('benefit_one');
-  $benefitOneTitle = get_field('benefit_one_title');
-  $benefitOneDescription = get_field('benefit_one_description');
-  $benefitTwoImage = get_field('benefit_two');
-  $benefitTwoTitle = get_field('benefit_two_title');
-  $benefitTwoDescription = get_field('benefit_two_description');
-  $benefitThreeImage = get_field('benefit_three');
-  $benefitThreetitle = get_field('benefit_three_title');
-  $benefitThreeDescription = get_field('benefit_three_description');
+  $gridBoxOne = get_field('grid_box_one');
+  $gridBoxTwo = get_field('grid_box_two');
+  $gridBoxThree = get_field('grid_box_three');
+  $gridBoxFour = get_field('grid_box_four');
+  $gridBoxFive = get_field('grid_box_five');
+  $gridBoxSix = get_field('grid_box_six');
+  $gridBoxSeven = get_field('grid_box_seven');
+  $gridBoxEight = get_field('grid_box_eight');
+
+
 ?>
 
 <section
-        class="grid-container section-starts overflow-hidden w-full h-full"
+        class="grid-container mt-10 overflow-hidden w-full h-full"
       >
         <div class="inner-container overflow-hidden">
           <div
-            class="grid-items grid grid-cols-2 gap-2 w-full h-full lg:grid-cols-3 lg:gap-4 overflow-hidden"
+            class="grid-items grid grid-cols-2 gap-2 w-full h-full lg:grid-cols-3 lg:gap-4 overflow-hidden" 
           >
-        
-            <div class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-full">
-              <img
-                class="w-full h-full object-cover"
-                src="<?php echo get_template_directory_uri(  )?>/images/sausages-image.jpg"
-                alt=""
-              />
-            </div>
-            <div class="grid-item w-full h-52 relative md:h-80 lg:h-full">
-              <img
-                class="w-full h-full object-cover"
-                src="<?php echo get_template_directory_uri(  )?>/images/family-values-image.png"
-                alt=""
-              />
-              <div
-                class="grid-item-content absolute bottom-0 z-10 p-4 text-white lg:max-w-sm"
+
+           <!-- Grid Item One -->
+           <?php
+          
+              $gridBoxOne = get_field('grid_box_one'); //  is your parent group
+              $grid_background = $gridBoxOne['grid_background']; //  is your child group 
+              $grid_title_field = $gridBoxOne['grid_title_field']; //  is your child group 
+              $grid_background_image = $grid_background['grid_background_image']['url']; //  is your child group 
+          ?>
+           <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div id="gridOne" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
+            <div
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
               >
                 <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
-                  Family Values
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
                 </h2>
                 <p
                   class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
                 >
-                  All our pigs have a health plan with a personal vet
+                <?php echo $gridBoxOne['grid_content']; // is a subfield of your child group ?>
                 </p>
               </div>
+            <style type="text/css">
+            #gridOne {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
             </div>
-            <div class="grid-item w-full h-52 relative md:h-80 lg:h-full">
-              <img
-                class="w-full h-full object-cover"
-                src="<?php echo get_template_directory_uri(  )?>/images/renewable-energy-image.png"
-                alt=""
-              />
+            <?php endif; ?>
 
-              <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-slate lg:max-w-sm"
-              >
-                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
-                  Renewable Energy
-                </h2>
-                <p
-                  class="text-sm mt-1 font-primary md:text-lg lg:text-xl lg:mt-2"
-                >
-                  our production facilities and coldstores are all powered by
-                  100% renewable grid electricity.
-                </p>
-              </div>
+            <!-- Grid Item -->
+           
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div  id="gridOne" class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+         
+           <?php if($grid_background['grid_background_image']['url']) : ?>
+            <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image']['url'])?>" alt="" />
+            <?php endif; ?>
+              <style type="text/css">
+            #gridOne {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
             </div>
+            <?php endif; ?>
+
+          <!--End Grid One Item -->
+
+
+          <!-- Grid Two Item -->
+            <?php
+              $gridBoxTwo = get_field('grid_box_two'); //  is your parent group
+              $grid_title_field = $gridBoxTwo['grid_title_field']; 
+              $grid_background = $gridBoxTwo['grid_background']; //  is your child group 
+            ?>
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div id="gridTwo" class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+          
+            <?php if($grid_background['grid_background_image']) : ?>
+              <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image'])?>" alt="" />
+            <?php endif; ?>
+            <style type="text/css">
+              #gridTwo {
+                background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+              }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!-- Grid Item -->
+
+          <?php
+              $gridBoxTwo = get_field('grid_box_two'); //  is your parent group
+              $grid_title_field = $gridBoxTwo['grid_title_field']; 
+              $grid_background = $gridBoxTwo['grid_background']; //  is your child group 
+          ?>
+          <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+
+          <div  id="gridTwo" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
             <div
-              class="grid-item col-span-2 bg-slate w-full h-52 relative md:h-80 lg:h-full"
-            >
-              <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-xl"
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
               >
+              <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
                 <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
-                  Food from the heart of Lincolnshire
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
                 </h2>
                 <p
-                  class="text-sm font-primary mt-2 md:text-lg lg:text-xl lg:mt-3"
+                  class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
                 >
-                  We have always had a passion for delivering great food and are
-                  known for our fantastic ethically created sausages. Since all
-                  of our food comes from the heart of Lincolnshire including the
-                  food our pigs eat, we felt we needed a brand that really
-                  captured the Lincolnshire provinence that we are so proud of
-                  and so Lincolnshire Pork Co. was created.
+                <?php echo $gridBoxTwo['grid_content']; // is a subfield of your child group ?>
                 </p>
               </div>
+              <style type="text/css">
+            #gridTwo {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
             </div>
+            <?php endif; ?>
+
+          <!-- Grid Two Item -->
+
+           <!-- Grid Item Three -->
+           <?php
+              $gridBoxThree = get_field('grid_box_three'); //  is your parent group
+              $grid_background = $gridBoxThree['grid_background']; //  is your child group 
+              $grid_title_field = $gridBoxThree['grid_title_field']; //  is your child group 
+              $grid_background_image = $grid_background['grid_background_image']; //  is your child group 
+            ?>
+           <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div id="gridThree" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
+            <div
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+              >
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
+                </h2>
+                <p
+                  class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
+                >
+                <?php echo $gridBoxThree['grid_content']; // is a subfield of your child group ?>
+                </p>
+              </div>
+            <style type="text/css">
+            #gridThree {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+            <!-- Grid Item -->
+           
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div  id="gridThree" class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+         
+           <?php if($grid_background['grid_background_image']) : ?>
+            <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image'])?>" alt="" />
+            <?php endif; ?>
+            <style type="text/css">
+              #gridThree {
+                background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+              }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!--End Grid Item Three-->
+
+
+          <!-- Grid Four Item -->
+            <?php
+              $gridBoxFour = get_field('grid_box_four'); //  is your parent group
+              $grid_title_field = $gridBoxFour['grid_title_field']; 
+              $grid_background = $gridBoxFour['grid_background']; //  is your child group 
+            ?>
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div id="gridFour" class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+          
+            <?php if($grid_background['grid_background_image']) : ?>
+              <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image'])?>" alt="" />
+            <?php endif; ?>
+            <style type="text/css">
+              #gridFour {
+                background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+              }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!-- Grid Item -->
+
+          <?php
+              $gridBoxFour = get_field('grid_box_four'); //  is your parent group
+              $grid_title_field = $gridBoxFour['grid_title_field']; 
+              $grid_background = $gridBoxFour['grid_background']; //  is your child group 
+            ?>
+          <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+
+          <div  id="gridFour" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
+            <div
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+              >
+              <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
+                </h2>
+                <p
+                  class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
+                >
+                <?php echo $gridBoxFour['grid_content']; // is a subfield of your child group ?>
+                </p>
+              </div>
+              <style type="text/css">
+            #gridFour {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!-- Grid four Item -->
+
+           <!-- Grid Item Five -->
+           <?php
+          
+              $gridBoxFive = get_field('grid_box_five'); //  is your parent group
+              $grid_background = $gridBoxFive['grid_background']; //  is your child group 
+              $grid_title_field = $gridBoxFive['grid_title_field']; //  is your child group 
+              $grid_background_image = $grid_background['grid_background_image']; //  is your child group 
+          ?>
+           <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div id="gridFive" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
+            <div
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+              >
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
+                </h2>
+                <p
+                  class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
+                >
+                <?php echo $gridBoxFive['grid_content']; // is a subfield of your child group ?>
+                </p>
+              </div>
+            <style type="text/css">
+            #gridFive {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+            <!-- Grid Item -->
+           
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div  id="gridFive" class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+         
+           <?php if($grid_background['grid_background_image']) : ?>
+            <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image'])?>" alt="" />
+            <?php endif; ?>
+              <style type="text/css">
+            #gridFive {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!--End Grid Five Item -->
+
+
+          <!-- Grid Six Item -->
+            <?php
+              $gridBoxSix = get_field('grid_box_six'); //  is your parent group
+              $grid_title_field = $gridBoxSix['grid_title_field']; 
+              $grid_background = $gridBoxSix['grid_background']; //  is your child group 
+            ?>
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div id="gridSix"  class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+          
+            <?php if($grid_background['grid_background_image']) : ?>
+              <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image'])?>" alt="" />
+            <?php endif; ?>
+            <style type="text/css">
+            #gridSix {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!-- Grid Item -->
+          <?php
+              $gridBoxSix = get_field('grid_box_six'); //  is your parent group
+              $grid_title_field = $gridBoxSix['grid_title_field']; 
+              $grid_background = $gridBoxSix['grid_background']; //  is your child group 
+            ?>
+          <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+
+          <div  id="gridSix" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
+            <div
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+              >
+              <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
+                </h2>
+                <p
+                  class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
+                >
+                <?php echo $gridBoxSix['grid_content']; // is a subfield of your child group ?>
+                </p>
+              </div>
+              <style type="text/css">
+            #gridSix {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!-- Grid Six Item -->
+
+           <!-- Grid Item Seven -->
+           <?php
+          
+              $gridBoxSeven = get_field('grid_box_seven'); //  is your parent group
+              $grid_background = $gridBoxSeven['grid_background']; //  is your child group 
+              $grid_title_field = $gridBoxSeven['grid_title_field']; //  is your child group 
+              $grid_background_image = $grid_background['grid_background_image']; //  is your child group 
+          ?>
+           <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div id="gridSeven" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
+            <div
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+              >
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
+                </h2>
+                <p
+                  class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
+                >
+                <?php echo $gridBoxSeven['grid_content']; // is a subfield of your child group ?>
+                </p>
+              </div>
+            <style type="text/css">
+            #gridSeven {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+            <!-- Grid Item -->
+           
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div  id="gridSeven" class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+         
+           <?php if($grid_background['grid_background_image']) : ?>
+            <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image'])?>" alt="" />
+            <?php endif; ?>
+            <style type="text/css">
+            #gridSeven {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!--End Grid gridSeven Item -->
+
+
+          <!-- Grid Eight Item -->
+            <?php
+              $gridBoxEight = get_field('grid_box_eight'); //  is your parent group
+              $grid_title_field = $gridBoxEight['grid_title_field']; 
+              $grid_background = $gridBoxEight['grid_background']; //  is your child group 
+            ?>
+            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+            <div  class="grid-item w-full h-52 relative md:h-80 lg:h-94" >
+          
+            <?php if($grid_background['grid_background_image']) : ?>
+              <img class="w-full h-full object-cover" src="<?php echo esc_url($grid_background['grid_background_image'])?>" alt="" />
+            <?php endif; ?>
+            <style type="text/css">
+            #gridEight {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!-- Grid Item -->
+
+          <?php
+              $gridBoxEight = get_field('grid_box_eight'); //  is your parent group
+              $grid_title_field = $gridBoxEight['grid_title_field']; 
+              $grid_background = $gridBoxEight['grid_background']; //  is your child group 
+          ?>
+          <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
+
+          <div  id="gridEight" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
+            <div
+                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+              >
+              <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
+                </h2>
+                <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
+                   <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
+                </h2>
+                <p
+                  class="text-sm font-primary mt-1 md:text-lg lg:text-xl lg:mt-2"
+                >
+                <?php echo $gridBoxEight['grid_content']; // is a subfield of your child group ?>
+                </p>
+              </div>
+              <style type="text/css">
+            #gridEight {
+              background-color:<?php echo esc_attr($grid_background['grid_background_colour']) ?>;
+            }
+           </style>
+            </div>
+            <?php endif; ?>
+
+          <!-- Grid Two Item -->
+
+
+            
+
+            
           </div>
         </div>
       </section>

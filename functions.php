@@ -31,6 +31,7 @@
 			wp_enqueue_script( 'gsap-js', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js', array(), '3.11.3', true );
 			wp_enqueue_script( 'gsap_scrollTrigger', get_template_directory_uri() . '/gsap-public/minified/ScrollTrigger.min.js', array(), '3.11.3', true );
 			wp_enqueue_script( 'main_js', get_template_directory_uri() .'/js/app.js', array('gsap-js'), '', true );
+			wp_enqueue_script( 'footer_js', get_template_directory_uri() .'/js/footer.js', array('main_js'), '', true );
 		
 		}
 		add_action( 'wp_enqueue_scripts', 'theme_gsap_script' );
@@ -39,15 +40,14 @@
 	//Set Widget Areas
 	function lpc_create_widget( $name, $id, $description ) {
 
-		register_sidebar(array(
-			'name' => __( $name ),
-			'id' => $id,
-			'description' => __( $description ),
-			'before_widget' => '<div class="widget">',
-			'after_widget' => '</div>',
-			'before_title' => '<h2 class="module-heading">',
-			'after_title' => '</h2>'
-		));
+
+		register_sidebar(
+			array(
+				'name'          => esc_html__( 'Social Icons', 'lincolnshireporkco' ),
+				'id'            => 'social_icons',
+				'description'   => esc_html__( 'Add widgets here.', 'lincolnshireporkco' ),
+			)
+		);
 
 
 		register_sidebar(
@@ -127,6 +127,8 @@
 		);
 	}
 	add_action( 'init', 'lpc_register_theme_menus' );
+
+	
 
 	class F6_DRILL_MENU_WALKER extends Walker_Nav_Menu
 	{
@@ -516,17 +518,27 @@
 	add_action( 'admin_enqueue_scripts', 'lpc_load_custom_wp_admin_style' );
 
 	
-	//custom class for menu items
-	
-	function add_additional_class_on_li($classes, $item, $args) {
-	if(isset($args->add_li_class)) {
-	$classes[] = $args->add_li_class;
-	}
-	return $classes;
-	}
-	add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
+		//custom class for menu items
+		function add_additional_class_on_li($classes, $item, $args) {
+			if(isset($args->add_li_class)) {
+				$classes[] = $args->add_li_class;
+			}
+			return $classes;
+		}
+		add_filter('nav_menu_css_class', 'add_additional_class_on_li', 1, 3);
 
-
+		
+		function template_chooser($template)   
+		{    
+			global $wp_query;   
+			$post_type = get_query_var('post_type');   
+			if( $wp_query->is_search && $post_type == 'products' )   
+			{
+				return locate_template('archive-search.php');  //  redirect to archive-search.php
+			}   
+			return $template;   
+		}
+		add_filter('template_include', 'template_chooser'); 
 
 	
 ?>
