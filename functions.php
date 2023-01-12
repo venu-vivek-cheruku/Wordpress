@@ -121,8 +121,7 @@
 			array(
 				'main-menu' => __( 'Main Menu' ),
         		'header-links' => __( 'Header Links' ),
-				'footer-links' => __( 'Footer Links' ),
-				'footer-course-links' => __( 'Footer Course Links' ),
+				'footer-links' => __( 'Footer Links' )
 			)
 		);
 	}

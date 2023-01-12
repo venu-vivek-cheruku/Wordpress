@@ -53,9 +53,9 @@
 
             
             <!-- social links -->
-
+            <div id="header-social" >
             <?php dynamic_sidebar( 'social_icons' ) ?>
- 
+            </div>
             <!-- Mobile links -->
             <div
               id="humburger-menu"

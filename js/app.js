@@ -43,6 +43,7 @@ if (slideLength > 0) {
     }
   };
 }
+
 function theChecker() {
   removeAttributes();
 
@@ -67,30 +68,21 @@ function removeAttributes() {
   });
 }
 
-// underline active on page
-
-// window.onload = setActive;
-
-// function setActive() {
-//   aObj = document.querySelectorAll(".nav-link");
-//   for (i = 0; i < aObj.length; i++) {
-//     if (document.location.href.indexOf(aObj[i].href) >= 0) {
-//       aObj[i].classList.toggle("active");
-//     }
-//   }
-// }
-
 // Play the checker function auto-matically..
 
-setInterval(function autoPlay() {
-  if (nextBtn.classList.contains("disabled")) {
-    currentImage = 1;
-    theChecker();
-  } else {
-    currentImage++;
-    theChecker();
-  }
-}, 4000);
+if (slideLength > 0) {
+  setInterval(function autoPlay() {
+    if (nextBtn.classList.contains("disabled")) {
+      currentImage = 1;
+      theChecker();
+    } else {
+      currentImage++;
+      theChecker();
+    }
+  }, 12000);
+}
+
+// product slider
 
 var slideIndex = 1;
 
@@ -182,6 +174,7 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
   }
 }
+
 // Gsap Animations
 
 gsap.registerPlugin(ScrollTrigger);
@@ -217,7 +210,7 @@ navLinksTl.from(".nav-link", {
     amount: 0.25,
   },
 });
-navLinksTl.from(".wp-social-link", {
+navLinksTl.from("#header-social ul li", {
   opacity: 0,
   stagger: {
     from: "center",

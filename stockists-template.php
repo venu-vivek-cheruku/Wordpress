@@ -110,10 +110,10 @@ get_header();
 			
 				<div
               
-                class="flex flex-col items-center bg-gray-100 w-full p-2 lg:w-52 h-32"
+                class="flex flex-col items-center bg-gray-100 w-full p-2 lg:w-52 h-52"
               >
                 <img
-                  class="flex-1 object-contain"
+                  class="flex-1 object-contain w-44"
                   src="<?php echo get_field('stockists_image') ?>"
                   alt=""
                 />

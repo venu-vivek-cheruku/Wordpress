@@ -4,7 +4,7 @@
 
     <div class="inner-container">
 
-        <div class="image-container flex flex-row justify-center">
+        <div class="image-container flex flex-row justify-center mt-52">
             <svg class="w-2/5" viewBox="0 0 1031 790" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_446_2685)">
                     <path d="M548.363 97.863L19.5449 784.183H787.038L905.448 212.287" fill="#F3F5FD" />

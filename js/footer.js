@@ -82,8 +82,8 @@ footerTl.from(".social-icons-container h2", {
   opacity: 0,
 });
 
-footerTl.from(".social-icons li", {
-  x: 500,
+footerTl.from(".footer-social-icons ul li", {
+  x: 0,
   opacity: 0,
   stagger: {
     from: "top",

@@ -31,7 +31,7 @@
            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
             <div id="gridOne" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
                 <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
@@ -103,7 +103,7 @@
 
           <div  id="gridTwo" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
               <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
@@ -137,7 +137,7 @@
            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
             <div id="gridThree" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
                 <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
@@ -209,7 +209,7 @@
 
           <div  id="gridFour" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
               <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
@@ -244,7 +244,7 @@
            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
             <div id="gridFive" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
                 <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
@@ -315,7 +315,7 @@
 
           <div  id="gridSix" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
               <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
@@ -350,7 +350,7 @@
            <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
             <div id="gridSeven" class="grid-item col-span-2 w-full h-52 relative md:h-80 lg:h-94">
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
                 <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>
@@ -422,7 +422,7 @@
 
           <div  id="gridEight" class="grid-item w-full h-52 col-span-2 relative md:h-80 lg:h-94" >
             <div
-                class="grid-item-content absolute top-0 z-10 p-4 text-white lg:max-w-2xl"
+                class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl"
               >
               <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                    <?php echo $grid_title_field['grid_key_point']; // is a subfield of your child group ?>

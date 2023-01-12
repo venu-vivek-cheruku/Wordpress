@@ -619,6 +619,10 @@ video {
   margin-right: auto;
 }
 
+.mt-52 {
+  margin-top: 13rem;
+}
+
 .mt-20 {
   margin-top: 5rem;
 }
@@ -687,10 +691,6 @@ video {
   height: 3rem;
 }
 
-.h-32 {
-  height: 8rem;
-}
-
 .w-2\/5 {
   width: 40%;
 }
@@ -711,12 +711,20 @@ video {
   width: 2.5rem;
 }
 
-.w-2\/6 {
-  width: 33.333333%;
+.w-60 {
+  width: 15rem;
+}
+
+.w-20 {
+  width: 5rem;
 }
 
 .w-40 {
   width: 10rem;
+}
+
+.w-44 {
+  width: 11rem;
 }
 
 .max-w-2xl {
@@ -745,6 +753,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .place-content-center {
@@ -873,6 +885,10 @@ video {
   padding: 1rem;
 }
 
+.p-6 {
+  padding: 1.5rem;
+}
+
 .p-10 {
   padding: 2.5rem;
 }
@@ -986,10 +1002,6 @@ video {
 .text-slate {
   --tw-text-opacity: 1;
   color: rgb(63 68 68 / var(--tw-text-opacity));
-}
-
-.underline {
-  text-decoration-line: underline;
 }
 
 .opacity-60 {
@@ -1368,16 +1380,16 @@ p {
   width: 100%;
   height: 100%;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
   padding: 2rem;
 }
 
-.products-slider-thumbnails .products-thumbnail {
+/* .products-slider-thumbnails .products-thumbnail {
   width: 120px;
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .products-thumbnail.active {
   transform: scale(1.3);
@@ -1448,6 +1460,12 @@ footer {
   margin-top: 2rem;
 }
 
+.footer-links ul {
+  max-width: 65%;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
 /* .contact-form {
   height: 50rem;
 } */
@@ -1473,7 +1491,11 @@ footer {
   }
 
   .main-header::after {
-    bottom: -60px;
+    bottom: 0px;
+  }
+
+  .main-header::before {
+    bottom: 5px;
   }
 
   .bg-fans {
@@ -1649,6 +1671,16 @@ ul#a-z li:first-child {
   padding: 10px 0;
 }
 
+@media (min-width: 1680px) {
+  .main-header::after {
+    bottom: -2px;
+  }
+
+  .main-header::before {
+    bottom: -8px;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:mt-4 {
     margin-top: 1rem;
@@ -1656,6 +1688,10 @@ ul#a-z li:first-child {
 
   .md\:h-80 {
     height: 20rem;
+  }
+
+  .md\:w-80 {
+    width: 20rem;
   }
 
   .md\:w-52 {
@@ -1695,6 +1731,10 @@ ul#a-z li:first-child {
     margin-top: 0.5rem;
   }
 
+  .lg\:-mt-10 {
+    margin-top: -2.5rem;
+  }
+
   .lg\:block {
     display: block;
   }
@@ -1705,6 +1745,10 @@ ul#a-z li:first-child {
 
   .lg\:hidden {
     display: none;
+  }
+
+  .lg\:w-96 {
+    width: 24rem;
   }
 
   .lg\:w-4\/6 {

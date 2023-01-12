@@ -259,23 +259,18 @@
                 <h2 class="font-primaryBold text-lg lg:text-xl">
                   Additional Links
                 </h2>
+
                 <div class="footer-links list-none flex gap-5">
-                  <div class="footer-link-1">
-                    <li class="font-primary text-sm lg:text-base">
-                      Contact Us
-                    </li>
-                    <li class="font-primary text-sm lg:text-base">
-                      Terms of Use
-                    </li>
-                  </div>
-                  <div class="footer-link-1">
-                    <li class="font-primary text-sm lg:text-base">
-                      Privacy Policy
-                    </li>
-                    <li class="font-primary text-sm lg:text-base">
-                      Cookie Policy
-                    </li>
-                  </div>
+                        <?php
+                          $defaults = array(
+                          'container' => 'ul',
+                          'theme_location' => 'footer-links',
+                          'menu_class' => 'flex flex-wrap justify-center items-center',  
+
+                          'add_li_class'  => 'font-primary text-sm lg:text-base '
+                          );
+                          wp_nav_menu( $defaults );
+                        ?>
                 </div>
               </div>
 
@@ -283,22 +278,8 @@
                 class="social-icons-container list-none flex flex-col items-center gap-y-2"
               >
                 <h2 class="font-primaryBold text-lg lg:text-xl">Oink! Oink!</h2>
-                <div class="social-icons flex flex-row space-x-6">
-                  <li class="footer-social-link">
-                    <i class="fa-brands fa-facebook-f"></i>
-                  </li>
-                  <li class="footer-social-link">
-                    <i class="fa-brands fa-instagram"></i>
-                  </li>
-                  <li class="footer-social-link">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                  </li>
-                  <li class="footer-social-link">
-                    <i class="fa-brands fa-twitter"></i>
-                  </li>
-                  <li class="footer-social-link">
-                    <i class="fa-solid fa-envelope"></i>
-                  </li>
+                <div class="footer-social-icons">
+                <?php dynamic_sidebar( 'social_icons' ) ?>
                 </div>
               </div>
             </div>
@@ -311,7 +292,7 @@
           </div>
           <div class="credits mt-8 mb-2 text-white opacity-60">
             <p class="font-calibri text-sm lg:text-base text-center">
-              2022 Lincolnshire Pork Co Ltd. a company registered in England
+             <?php echo date('Y'); ?>  Lincolnshire Pork Co Ltd. a company registered in England
               under registration number 00446238 at Grayingham, Gainsborough,
               Lincolnshire, DN21 4JD
             </p>
@@ -568,44 +549,26 @@
                 Additional Links
               </h2>
               <div class="footer-links list-none flex gap-5">
-                <div class="footer-link-1">
-                  <li class="font-primary text-sm lg:text-base">Contact Us</li>
-                  <li class="font-primary text-sm lg:text-base">
-                    Terms of Use
-                  </li>
+                        <?php
+                          $defaults = array(
+                          'container' => 'ul',
+                          'theme_location' => 'footer-links',
+                          'menu_class' => 'flex flex-wrap justify-center items-center',  
+
+                          'add_li_class'  => 'font-primary text-sm lg:text-base '
+                          );
+                          wp_nav_menu( $defaults );
+                        ?>
                 </div>
-                <div class="footer-link-1">
-                  <li class="font-primary text-sm lg:text-base">
-                    Privacy Policy
-                  </li>
-                  <li class="font-primary text-sm lg:text-base">
-                    Cookie Policy
-                  </li>
-                </div>
-              </div>
             </div>
 
             <div
               class="social-icons-container list-none flex flex-col items-center gap-y-2"
             >
               <h2 class="font-primaryBold text-lg lg:text-xl">Oink! Oink!</h2>
-              <div class="social-icons flex flex-row space-x-6">
-                <li class="footer-social-link">
-                  <i class="fa-brands fa-facebook-f"></i>
-                </li>
-                <li class="footer-social-link">
-                  <i class="fa-brands fa-instagram"></i>
-                </li>
-                <li class="footer-social-link">
-                  <i class="fa-brands fa-linkedin-in"></i>
-                </li>
-                <li class="footer-social-link">
-                  <i class="fa-brands fa-twitter"></i>
-                </li>
-                <li class="footer-social-link">
-                  <i class="fa-solid fa-envelope"></i>
-                </li>
-              </div>
+              <div class="footer-social-icons">
+                <?php dynamic_sidebar( 'social_icons' ) ?>
+                </div>
             </div>
 
             <div class="stamp-container w-2/5 mx-auto">
@@ -616,7 +579,7 @@
           </div>
           <div class="credits mt-8 mb-2 text-white opacity-60">
             <p class="font-calibri text-xs lg:text-base text-center">
-              2022 Lincolnshire Pork Co Ltd. a company registered in England
+            <?php echo date('Y'); ?>  Lincolnshire Pork Co Ltd. a company registered in England
               under registration number 00446238 at Grayingham, Gainsborough,
               Lincolnshire, DN21 4JD
             </p>

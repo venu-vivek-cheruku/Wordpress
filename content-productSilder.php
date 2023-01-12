@@ -2,7 +2,7 @@
 
  <!-- Hero Container  -->
  <section
-        class="product-hero-slider-container w-full h-full relative z-10 bg-transparent mt-32"
+        class="product-hero-slider-container w-full h-full relative z-10 bg-transparent mt-32 lg:-mt-10"
       >
         <div class="inner-container w-full h-full">
 
@@ -49,7 +49,7 @@
             <div
               class="products-slide h-full w-full flex-col lg:flex-row items-center p-10 gap-y-5"
             >
-              <div class="product-image-container w-2/6 p-8">
+              <div class="product-image-container w-60 md:w-80 lg:w-96 p-8">
 
                 <img
                   class="w-full h-full"
@@ -111,9 +111,9 @@
               $productDescription = get_field('product_description');
               $productColor = get_field('product_colour');
             ?>
-            <div id="thumbnail" class="products-thumbnail <?php echo $productColor ?>">
+            <div id="thumbnail" class="products-thumbnail w-20 <?php echo $productColor ?>">
               <img
-                class="lg:w-3/4 object-cover drop-shadow-xl"
+                class=" w-full object-cover drop-shadow-xl"
                  src="<?php echo $productImage ?>"
                 alt=""
               />
