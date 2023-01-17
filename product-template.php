@@ -13,9 +13,7 @@ get_header();
 <?php get_template_part( 'content', 'productSilder' ); ?>
 
 
-<?php
-if($grid == 'true')
- get_template_part( 'content', 'grid' ); ?>
+
 
 
 

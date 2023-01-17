@@ -82,7 +82,7 @@ footerTl.from(".social-icons-container h2", {
   opacity: 0,
 });
 
-footerTl.from(".footer-social-icons ul li", {
+footerTl.from(".footer-social-icons .social-icons a", {
   x: 0,
   opacity: 0,
   stagger: {

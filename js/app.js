@@ -7,6 +7,39 @@ function openMenu() {
   menuLinks.forEach((cl) => cl.classList.toggle("slide-in-top"));
 }
 
+//slider
+
+var Autoplay = {
+  timerId: null,
+  interval: 8000,
+  start: function () {
+    this.timerId = setInterval(function () {
+      if (slide[0] !== undefined) {
+        if (nextBtn.classList.contains("disabled")) {
+          currentImage = 1;
+          theChecker();
+        } else {
+          currentImage++;
+          theChecker();
+        }
+      }
+    }, this.interval);
+  },
+
+  reset: function () {
+    clearInterval(this.timerId);
+    this.start();
+  },
+};
+
+var autoplay = true;
+var autoplayInterval = 8000;
+var autoplayTimer = null;
+
+if (autoplay) {
+  Autoplay.start();
+}
+
 if (document.querySelectorAll(".slider .slide")) {
   var slide = Array.from(document.querySelectorAll(".slider .slide")),
     slideLength = slide.length,
@@ -45,23 +78,26 @@ if (slideLength > 0) {
 }
 
 function theChecker() {
-  removeAttributes();
-
-  slide[currentImage - 1].classList.add("active");
-
-  if (currentImage == 1) {
-    prevBtn.classList.add("disabled");
-  } else {
-    prevBtn.classList.remove("disabled");
+  if (autoplay) {
+    Autoplay.reset();
   }
+  removeAttributes();
+  if (slide[0] !== undefined) {
+    slide[currentImage - 1].classList.add("active");
 
-  if (currentImage == slideLength) {
-    nextBtn.classList.add("disabled");
-  } else {
-    nextBtn.classList.remove("disabled");
+    if (currentImage == 1) {
+      prevBtn.classList.add("disabled");
+    } else {
+      prevBtn.classList.remove("disabled");
+    }
+
+    if (currentImage == slideLength) {
+      nextBtn.classList.add("disabled");
+    } else {
+      nextBtn.classList.remove("disabled");
+    }
   }
 }
-
 function removeAttributes() {
   slide.forEach(function (img) {
     img.classList.remove("active");
@@ -70,35 +106,150 @@ function removeAttributes() {
 
 // Play the checker function auto-matically..
 
-if (slideLength > 0) {
-  setInterval(function autoPlay() {
-    if (nextBtn.classList.contains("disabled")) {
-      currentImage = 1;
-      theChecker();
-    } else {
-      currentImage++;
-      theChecker();
-    }
-  }, 12000);
-}
+// if (slideLength > 0) {
+//   setInterval(function autoPlay() {
+//     if (nextBtn.classList.contains("disabled")) {
+//       currentImage = 1;
+//       theChecker();
+//     } else {
+//       currentImage++;
+//       theChecker();
+//     }
+//   }, 6000);
+// }
 
-// product slider
+// Gsap Animations
 
-var slideIndex = 1;
+gsap.registerPlugin(ScrollTrigger);
 
-showSlides(slideIndex);
+ScrollTrigger.batch(".grid-item", {
+  batchMax: 3,
+  markers: false,
+  start: "top bottom",
 
-function plusSlides(n) {
-  showSlides((slideIndex += n));
-  thumbnailcolorchecker();
-}
+  onEnter: (batch) => {
+    gsap.to(batch, {
+      autoAlpha: 1,
+      start: "top bottom",
+      stagger: 0.15,
+      opacity: 1,
+      y: 0,
+      ease: "power3",
+    });
+  },
+});
 
+navLinksTl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".main-header",
+  },
+});
+
+navLinksTl.from(".nav-link", {
+  x: -300,
+  opacity: 0,
+  stagger: {
+    from: "left",
+    amount: 0.25,
+  },
+});
+navLinksTl.from("#header-social .social-icons a", {
+  opacity: 0,
+  stagger: {
+    from: "center",
+    amount: 0.15,
+  },
+});
+
+const pinImage = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".contact-form-container",
+    pin: ".contact-image",
+    pinSpacing: false,
+    start: "top 100",
+    endTrigger: ".contact-form",
+    end: "bottom 300",
+    markers: false,
+  },
+});
+
+gsap.to(".stockist-item", {
+  opacity: 1,
+  scale: 1,
+  stagger: {
+    from: "random",
+    amount: 0.25,
+  },
+});
+
+//Product Slider
+
+// Get the elements for the productSlide, thumbnails, and controls
+var productSlide = document.getElementsByClassName("products-slide");
+var thumbnails = document.getElementsByClassName("products-thumbnail");
+var thumbnailContainer = document.getElementsByClassName(
+  "products-thumbnail-container"
+);
+var prevButton = document.getElementById("products-prev");
+var nextButton = document.getElementById("products-next");
 let headerbg = document.getElementById("header");
 let productsSliderArrows = document.getElementsByClassName("products-arrows");
-function thumbnailcolorchecker() {
-  const productThumbnail =
-    document.getElementsByClassName("products-thumbnail");
 
+// Set the initial index and the interval for the autoplay
+var currentIndex = 0;
+var autoplayInterval = setInterval(nextSlide, 12000);
+
+// Add event listeners for the thumbnails
+for (var i = 0; i < thumbnailContainer.length; i++) {
+  productSlide[0].classList.add("active");
+  thumbnails[0].classList.add("active");
+  thumbnailContainer[i].addEventListener("click", function () {
+    clearInterval(autoplayInterval);
+    currentIndex = parseInt(this.getAttribute("data-value"));
+    updateSlide();
+  });
+}
+if (thumbnailContainer[0] !== undefined) {
+  thumbnailContainer[0].classList.add("active");
+
+  // Add event listeners for the controls
+  prevButton.addEventListener("click", prevSlide);
+  nextButton.addEventListener("click", nextSlide);
+}
+// Function to go to the previous productSlide
+function prevSlide() {
+  currentIndex--;
+  if (currentIndex < 0) {
+    currentIndex = thumbnails.length - 1;
+  }
+  updateSlide();
+}
+
+// Function to go to the next productSlide
+function nextSlide() {
+  currentIndex++;
+  if (currentIndex >= thumbnails.length) {
+    currentIndex = 0;
+  }
+  updateSlide();
+}
+
+// Function to update the productSlide and the thumbnails
+function updateSlide() {
+  for (var i = 0; i < thumbnailContainer.length; i++) {
+    thumbnailContainer[i].classList.remove("active");
+    productSlide[i].classList.remove("active");
+  }
+  if (thumbnailContainer[0] !== undefined) {
+    thumbnailContainer[currentIndex].classList.add("active");
+    thumbnailcolorchecker();
+    productSlide[currentIndex].classList.add("active");
+  }
+}
+function thumbnailcolorchecker() {
+  const productThumbnail = document.getElementsByClassName(
+    "products-thumbnail-container"
+  );
   for (let i = 0; i < productThumbnail.length; i++) {
     if (productThumbnail[i].classList.contains("active")) {
       if (productThumbnail[i].classList.contains("redArrow")) {
@@ -145,87 +296,3 @@ function thumbnailcolorchecker() {
     }
   }
 }
-
-function currentSlide(n) {
-  showSlides((slideIndex = n));
-  thumbnailcolorchecker();
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("products-slide");
-  var dots = document.getElementsByClassName("products-thumbnail");
-  if (n > slides.length) {
-    slideIndex = 1;
-    thumbnailcolorchecker();
-  }
-  if (n < 1) {
-    thumbnailcolorchecker();
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  if (slides.length > 0) {
-    slides[slideIndex - 1].style.display = "flex";
-    dots[slideIndex - 1].className += " active";
-  }
-}
-
-// Gsap Animations
-
-gsap.registerPlugin(ScrollTrigger);
-
-ScrollTrigger.batch(".grid-item", {
-  batchMax: 3,
-  markers: false,
-  start: "top bottom",
-
-  onEnter: (batch) => {
-    gsap.to(batch, {
-      autoAlpha: 1,
-      start: "top bottom",
-      stagger: 0.15,
-      opacity: 1,
-      y: 0,
-      ease: "power3",
-    });
-  },
-});
-
-navLinksTl = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".main-header",
-  },
-});
-
-navLinksTl.from(".nav-link", {
-  x: -300,
-  opacity: 0,
-  stagger: {
-    from: "left",
-    amount: 0.25,
-  },
-});
-navLinksTl.from("#header-social ul li", {
-  opacity: 0,
-  stagger: {
-    from: "center",
-    amount: 0.15,
-  },
-});
-
-const pinImage = gsap.timeline({
-  scrollTrigger: {
-    trigger: ".contact-form-container",
-    pin: ".contact-image",
-    pinSpacing: false,
-    start: "top 100",
-    endTrigger: ".contact-form",
-    end: "bottom 300",
-    markers: false,
-  },
-});

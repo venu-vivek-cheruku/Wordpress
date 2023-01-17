@@ -1,18 +1,16 @@
 <!--Hero Slider  -->
 <section class="hero-slider-container w-full h-full relative z-10">
-        <div class="inner-container w-full h-full">
-          <div class="slider h-full w-full">
+    <div class="inner-container w-full h-full">
+        <div class="slider h-full w-full">
             <div class="slider-arrows flex flex-row justify-between z-10">
-              <div id="prev" class="prev arrow-left">
-                <i
-                  class="fa-solid fa-chevron-left text-white bg-slate w-10 h-10 flex flex-col justify-center items-center rounded-full"
-                ></i>
-              </div>
-              <div id="next" class="next arrow-right">
-                <i
-                  class="fa-solid fa-chevron-right text-white bg-slate w-10 h-10 flex flex-col justify-center items-center rounded-full"
-                ></i>
-              </div>
+                <div id="prev" class="prev arrow-left">
+                    <i
+                        class="fa-solid fa-chevron-left text-white bg-slate w-10 h-10 flex flex-col justify-center items-center rounded-full"></i>
+                </div>
+                <div id="next" class="next arrow-right">
+                    <i
+                        class="fa-solid fa-chevron-right text-white bg-slate w-10 h-10 flex flex-col justify-center items-center rounded-full"></i>
+                </div>
             </div>
 
             <!-- Slide  -->
@@ -25,27 +23,25 @@
             ?>
             <?php if( $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-             
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
             <!-- Slide  -->
@@ -58,30 +54,28 @@
             ?>
             <?php if(  $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-             
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
-            
+
 
             <!-- Slide  -->
             <?php
@@ -93,27 +87,25 @@
             ?>
             <?php if( $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-             
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
             <!-- Slide  -->
@@ -126,31 +118,29 @@
             ?>
             <?php if(  $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-             
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
-          <!-- Slide  -->
-          <?php
+            <!-- Slide  -->
+            <?php
               $silderFive = get_field('slider_five'); //  is your parent group
               $slideImage = $silderFive['slider_image']; //  is your child group 
               $slideTitle = $silderFive['slider_title']; //  is your child group 
@@ -159,27 +149,25 @@
             ?>
             <?php if(  $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-             
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
 
@@ -193,27 +181,25 @@
             ?>
             <?php if( $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-             
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
             <!-- Slide  -->
@@ -226,27 +212,25 @@
             ?>
             <?php if(  $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-             
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
             <!-- Slide  -->
@@ -259,30 +243,28 @@
             ?>
             <?php if( $slideImage && $slideTitle) : ?>
             <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
-            <?php if($slideImage) : ?>
-              <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-            <?php endif; ?>
-              <div
-                class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6"
-              >
-                <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
-                  <?php echo  $slideTitle ?>
-                </h2>
-                <p class="mt-2 text-primary text-base md:text-lg">
-                <?php echo  $slideContent ?>
-                </p>
-              </div>
+                <?php if($slideImage) : ?>
+                <img class="slide-image lg:w-3/4 h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
+                <?php endif; ?>
+                <div class="slide-content w-full p-4  <?php echo $slideBackgroundColor ?> text-white lg:w-1/4 lg:p-6">
+                    <h2 class="font-primaryBold text-xl md:text-2xl lg:text-3xl">
+                        <?php echo  $slideTitle ?>
+                    </h2>
+                    <p class="mt-2 text-primary text-base md:text-lg">
+                        <?php echo  $slideContent ?>
+                    </p>
+                </div>
             </div>
             <?php else : ?>
-              <?php if($slideImage) : ?>
-              <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
+            <?php if($slideImage) : ?>
+            <div class="slide h-full w-full absolute flex flex-col lg:flex-row">
                 <img class="w-full h-full object-cover" src="<?php echo esc_url($slideImage)?>" alt="" />
-             </div>
-             <?php endif; ?>
+            </div>
+            <?php endif; ?>
             <?php endif; ?>
 
-          </div>
-          <!-- End of Inner Container -->
         </div>
-        <!-- End of Hero Container -->
-      </section>
+        <!-- End of Inner Container -->
+    </div>
+    <!-- End of Hero Container -->
+</section>

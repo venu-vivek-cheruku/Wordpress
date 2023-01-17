@@ -243,190 +243,318 @@
 
 	add_filter('acf/update_value/name=page_feature_boxes', 'bidirectional_acf_update_value', 10, 3);
 	add_filter('acf/update_value/name=page_documents', 'bidirectional_acf_update_value', 10, 3);
+//Define a new Theme Customizer
+function lpc_customize_register($wp_customize)
+{
 
-	//Define a new Theme Customizer
-	function lpc_customize_register( $wp_customize ){
+    // Sanitize text
+    function sanitize_text($text)
+    {
+        return sanitize_text_field($text);
+    }
 
-		//Add 'Change Your Logo' section
-		$wp_customize->add_section( 'lpc_logo_section', array(
-			'title'		=> __( 'Change Your Logo', 'lincolnshireporkco' ),
-			'priority'	=> 30,
-		) );
+    //Design Section Preferences
 
-		//Add 'Change Your Favicon' section
-		// $wp_customize->add_section( 'lpc_favicon_section', array(
-		// 	'title'		=> __( 'Change Your Favicon', 'lincolnshireporkco' ),
-		// 	'priority'	=> 40,
-		// ) );
+    // Add section social link Section
+    $wp_customize->add_section('lpc_social_links_section', array(
+        'title' => __('Social Links', 'lincolnshireporkco'),
+        'priority' => 50,
+    ));
 
-		//Add 'Company Details' section
-		$wp_customize->add_section( 'lpc_company_details_section', array(
-			'title'		=> __( 'Company Details', 'lincolnshireporkco' ),
-			'priority'	=> 30,
-		) );
+    //Add 'Change Your Footer Logo' section
+    $wp_customize->add_section('lpc_footer_logo_section', array(
+        'title' => __('Change Your Footer Logo', 'lincolnshireporkco'),
+        'priority' => 35,
+    ));
 
-		//Add 'Logo' setting
-		$wp_customize->add_setting( 'lpc_logo', array(
-			'default'	=> get_template_directory_uri() . '/img/logo.png',
-			'transport'	=> 'refresh',
-		) );
+    //Add 'Change Your Logo' section
+    $wp_customize->add_section('lpc_logo_section', array(
+        'title' => __('Change Your Logo', 'lincolnshireporkco'),
+        'priority' => 30,
+    ));
 
-		//Add 'Favicon' setting
-		// $wp_customize->add_setting( 'lpc_favicon', array(
-		// 	'default'	=> get_template_directory_uri() . '/img/favicon.ico',
-		// 	'transport'	=> 'refresh',
-		// ) );
+    //Add 'Company Details' section
+    $wp_customize->add_section('lpc_company_details_section', array(
+        'title' => __('Company Details', 'lincolnshireporkco'),
+        'priority' => 30,
+    ));
 
-		//Add 'Company Name' setting
-		$wp_customize->add_setting( 'lpc_company_name', array(
-			'default'	=> 'lincolnshireporkco',
-			'transport'	=> 'refresh',
-		) );
+    // Add setting facebook
+    $wp_customize->add_setting('lpc_social_facebook', array(
+        'default' => __('', 'lincolnshireporkco'),
+        'sanitize_callback' => 'sanitize_text',
+        'transport' => 'refresh',
+    ));
 
-		//Add 'Telephone' setting
-		$wp_customize->add_setting( 'lpc_telephone', array(
-			'default'	=> '',
-			'transport'	=> 'refresh',
-		) );
+    // Add setting twitter
+    $wp_customize->add_setting('lpc_social_twitter', array(
+        'default' => __('', 'lincolnshireporkco'),
+        'sanitize_callback' => 'sanitize_text',
+        'transport' => 'refresh',
+    ));
 
-		//Add 'Fax' setting
-		$wp_customize->add_setting( 'lpc_fax', array(
-			'default'	=> '',
-			'transport'	=> 'refresh',
-		) );
+    // Add setting linkedin
+    $wp_customize->add_setting('lpc_social_linkedIn', array(
+        'default' => __('', 'lincolnshireporkco'),
+        'sanitize_callback' => 'sanitize_text',
+        'transport' => 'refresh',
+    ));
 
-		//Add 'Address' setting
-		$wp_customize->add_setting( 'lpc_address', array(
-			'default'	=> '',
-			'transport'	=> 'refresh',
-		) );
+    // Add setting instagram
+    $wp_customize->add_setting('lpc_social_instagram', array(
+        'default' => __('', 'lincolnshireporkco'),
+        'sanitize_callback' => 'sanitize_text',
+        'transport' => 'refresh',
+    ));
 
-		//Add 'Email' setting
-		$wp_customize->add_setting( 'lpc_email', array(
-			'default'	=> '',
-			'transport'	=> 'refresh',
-		) );
+    //Add 'Logo' setting
+    $wp_customize->add_setting('lpc_logo', array(
+        'default' => get_template_directory_uri() . '/img/logo.png',
+        'transport' => 'refresh',
+    ));
 
-		//Add 'Website' setting
-		$wp_customize->add_setting( 'lpc_website', array(
-			'default'	=> '',
-			'transport'	=> 'refresh',
-		) );
+    // Add footer Footer Logo setting
+    $wp_customize->add_setting('lpc_footer_logo', array(
+        'default' => get_template_directory_uri() . '/img/logo.png',
+        'transport' => 'refresh',
+    ));
 
-		//Add 'Opening Times' setting
-		$wp_customize->add_setting( 'lpc_opening_times', array(
-			'default'	=> '',
-			'transport'	=> 'refresh',
-		) );
+    //Add 'Favicon' setting
+    $wp_customize->add_setting('lpc_favicon', array(
+        'default' => get_template_directory_uri() . '/img/favicon.ico',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Logo' setting to 'Change Your Logo' section and assign image uploader
-		$wp_customize->add_control( new WP_Customize_Image_Control ( $wp_customize, 'logo', array (
-			'label'		=> __( 'Logo', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_logo_section',
-			'settings'	=> 'lpc_logo'
-		) ) );
+    //Add 'Company Name' setting
+    $wp_customize->add_setting('lpc_company_name', array(
+        'default' => 'lincolnshireporkco',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Favicon' setting to 'Change Your Logo / Favicon' section and assign image uploader
-		$wp_customize->add_control( new WP_Customize_Image_Control ( $wp_customize, 'favicon', array (
-			'label'		=> __( 'Favicon', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_favicon_section',
-			'settings'	=> 'lpc_favicon'
-		) ) );
+    //Add 'Telephone' setting
+    $wp_customize->add_setting('lpc_telephone', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Company Name' setting to 'Company Details' section and assign text field
-		$wp_customize->add_control( new WP_Customize_Control ( $wp_customize, 'company_name', array (
-			'label'		=> __( 'Company Name', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_company_details_section',
-			'settings'	=> 'lpc_company_name'
-		) ) );
+    //Add 'Fax' setting
+    $wp_customize->add_setting('lpc_fax', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Telephone' setting to 'Company Details' section and assign text field
-		$wp_customize->add_control( new WP_Customize_Control ( $wp_customize, 'telephone', array (
-			'label'		=> __( 'Telephone', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_company_details_section',
-			'settings'	=> 'lpc_telephone'
-		) ) );
+    //Add 'Address' setting
+    $wp_customize->add_setting('lpc_address', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Fax' setting to 'Company Details' section and assign text field
-		$wp_customize->add_control( new WP_Customize_Control ( $wp_customize, 'fax', array (
-			'label'		=> __( 'Fax', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_company_details_section',
-			'settings'	=> 'lpc_fax'
-		) ) );
+    
+    //Add 'Street' setting
+    $wp_customize->add_setting('lpc_street', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Address' setting to 'Company Details' section and assign text field
-		$wp_customize->add_control( new WP_Customize_Control ( $wp_customize, 'address', array (
-			'label'		=> __( 'Address', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_company_details_section',
-			'settings'	=> 'lpc_address'
-		) ) );
+    //Add 'Area' setting
+    $wp_customize->add_setting('lpc_area', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Email' setting to 'Company Details' section and assign text field
-		$wp_customize->add_control( new WP_Customize_Control ( $wp_customize, 'email', array (
-			'label'		=> __( 'Email', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_company_details_section',
-			'settings'	=> 'lpc_email'
-		) ) );
+    //Add 'Post Code' setting
+    $wp_customize->add_setting('lpc_postCode', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Website' setting to 'Company Details' section and assign text field
-		$wp_customize->add_control( new WP_Customize_Control ( $wp_customize, 'website', array (
-			'label'		=> __( 'Website', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_company_details_section',
-			'settings'	=> 'lpc_website'
-		) ) );
+    //Add 'Email' setting
+    $wp_customize->add_setting('lpc_email', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Link 'Opening Times' setting to 'Company Details' section and assign text field
-		$wp_customize->add_control( new WP_Customize_Control ( $wp_customize, 'opening_times', array (
-			'label'		=> __( 'Opening Times', 'lincolnshireporkco' ),
-			'section'	=> 'lpc_company_details_section',
-			'settings'	=> 'lpc_opening_times'
-		) ) );
+    //Add 'Website' setting
+    $wp_customize->add_setting('lpc_website', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Remove sections not required for theme
-		$wp_customize->remove_section( 'colors' );
-		$wp_customize->remove_section( 'header_image' );
+    //Add 'Opening Times' setting
+    $wp_customize->add_setting('lpc_opening_times', array(
+        'default' => '',
+        'transport' => 'refresh',
+    ));
 
-		//Remove Tagline
-		$wp_customize->remove_control('blogdescription');
-		$wp_customize->remove_control('display_header_text');
+    //  //Link 'Facebook' setting to 'Social Links' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'control_social_facebook', array(
+        'label' => __('Facebook', 'lincolnshireporkco'),
+        'section' => 'lpc_social_links_section',
+        'settings' => 'lpc_social_facebook',
+        'type' => 'text',
+    )));
 
-		//Rename 'Site Title & Tagline' section to 'Site Title'
-		$wp_customize->add_section( 'title_tagline', array(
-			'title'		=> __( 'Site Title', 'lincolnshireporkco' ),
-			'priority'	=> 20,
-		) );
+    //  //Link 'Twitter' setting to 'Social Links' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'control_social_twitter', array(
+        'label' => __('Twitter', 'lincolnshireporkco'),
+        'section' => 'lpc_social_links_section',
+        'settings' => 'lpc_social_twitter',
+        'type' => 'text',
+    )));
 
-		//Rename 'Static Front Page' section to 'Home Page Preferences'
-		$wp_customize->add_section( 'static_front_page', array(
-			'title'		=> __( 'Home Page Preferences', 'lincolnshireporkco' ),
-			'priority'	=> 120,
-		) );
+    //  //Link 'LinkedIn' setting to 'Social Links' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'control_social_linkedin', array(
+        'label' => __('LinkedIn', 'lincolnshireporkco'),
+        'section' => 'lpc_social_links_section',
+        'settings' => 'lpc_social_linkedIn',
+        'type' => 'text',
+    )));
 
-		//Create custom panels
-		$wp_customize->add_panel( 'configuration', array(
-			'priority'			=> 10,
-			'theme_supports'	=> '',
-			'title'				=> __( 'Configuration', 'lincolnshireporkco' ),
-			'description'		=> __( 'Sets the initial options for the theme', 'lincolnshireporkco' ),
-		) );
+    //  //Link 'instagram' setting to 'Social Links' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'control_social_instagram', array(
+        'label' => __('Instagram', 'lincolnshireporkco'),
+        'section' => 'lpc_social_links_section',
+        'settings' => 'lpc_social_instagram',
+        'type' => 'text',
+    )));
 
-		$wp_customize->add_panel( 'design', array(
-			'priority'			=> 20,
-			'theme_supports'	=> '',
-			'title'				=> __( 'Design', 'lincolnshireporkco' ),
-			'description'		=> __( 'Sets the design options for the theme', 'lincolnshireporkco' ),
-		) );
+    //Link 'Logo' setting to 'Change Your Logo' section and assign image uploader
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'logo', array(
+        'label' => __('Logo', 'lincolnshireporkco'),
+        'section' => 'lpc_logo_section',
+        'settings' => 'lpc_logo',
+    )));
 
-		//Assign sections to panels
-		$wp_customize->get_section('static_front_page')->panel = 'configuration';
-		$wp_customize->get_section('title_tagline')->panel = 'configuration';
-		$wp_customize->get_section('lpc_company_details_section')->panel = 'configuration';
-		$wp_customize->get_section('lpc_logo_section')->panel = 'design';
-		// $wp_customize->get_section('lpc_favicon_section')->panel = 'design';
+    //Link 'Footer Logo' setting to 'Change Your Footer  Logo' section and assign image uploader
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'Footer logo', array(
+        'label' => __('Footer Logo', 'lincolnshireporkco'),
+        'section' => 'lpc_footer_logo_section',
+        'settings' => 'lpc_footer_logo',
+    )));
 
-	}
+    //Link 'Favicon' setting to 'Change Your Logo / Favicon' section and assign image uploader
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'favicon', array(
+        'label' => __('Favicon', 'lincolnshireporkco'),
+        'section' => 'lpc_favicon_section',
+        'settings' => 'lpc_favicon',
+    )));
 
-	add_action( 'customize_register', 'lpc_customize_register' );
+    //Link 'Company Name' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'company_name', array(
+        'label' => __('Company Name', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_company_name',
+    )));
+
+    //Link 'Telephone' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'telephone', array(
+        'label' => __('Telephone', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_telephone',
+    )));
+
+    //Link 'Fax' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'fax', array(
+        'label' => __('Fax', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_fax',
+    )));
+
+    //Link 'Address' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'address', array(
+        'label' => __('Address', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_address',
+    )));
+
+    //Link 'Street' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'street', array(
+        'label' => __('Street', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_street',
+    )));
+
+    //Link 'Area' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'area', array(
+        'label' => __('Area', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_area',
+    )));
+
+    //Link 'Post Code' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'postCode', array(
+        'label' => __('Post Code', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_postCode',
+    )));
+
+    //Link 'Email' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'email', array(
+        'label' => __('Email', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_email',
+    )));
+
+    //Link 'Website' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'website', array(
+        'label' => __('Website', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_website',
+    )));
+
+    //Link 'Opening Times' setting to 'Company Details' section and assign text field
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'opening_times', array(
+        'label' => __('Opening Times', 'lincolnshireporkco'),
+        'section' => 'lpc_company_details_section',
+        'settings' => 'lpc_opening_times',
+    )));
+
+    //Create custom panels
+    $wp_customize->add_panel('configuration', array(
+        'priority' => 10,
+        'theme_supports' => '',
+        'title' => __('Configuration', 'lincolnshireporkco'),
+        'description' => __('Sets the initial options for the theme', 'lincolnshireporkco'),
+    ));
+
+    $wp_customize->add_panel('design', array(
+        'priority' => 30,
+        'theme_supports' => '',
+        'title' => __('Design', 'lincolnshireporkco'),
+        'description' => __('Sets the design options for the theme', 'lincolnshireporkco'),
+    ));
+
+    //Remove sections not required for theme
+    $wp_customize->remove_section('colors');
+    $wp_customize->remove_section('header_image');
+
+    //Remove Tagline
+    $wp_customize->remove_control('blogdescription');
+    $wp_customize->remove_control('display_header_text');
+
+    //Rename 'Site Title & Tagline' section to 'Site Title'
+    $wp_customize->add_section('title_tagline', array(
+        'title' => __('Site Title', 'lincolnshireporkco'),
+        'priority' => 20,
+    ));
+
+    //Rename 'Static Front Page' section to 'Home Page Preferences'
+    $wp_customize->add_section('static_front_page', array(
+        'title' => __('Home Page Preferences', 'lincolnshireporkco'),
+        'priority' => 120,
+    ));
+
+    //Assign sections to panels
+    $wp_customize->get_section('static_front_page')->panel = 'configuration';
+    $wp_customize->get_section('title_tagline')->panel = 'configuration';
+    $wp_customize->get_section('lpc_company_details_section')->panel = 'configuration';
+    $wp_customize->get_section('lpc_social_links_section')->panel = 'configuration';
+    $wp_customize->get_section('lpc_logo_section')->panel = 'design';
+    $wp_customize->get_section('lpc_footer_logo_section')->panel = 'design';
+
+}
+
+add_action('customize_register', 'lpc_customize_register');
 
 	//Redirect specific custom post type single pages
 	function lpc_redirect_post() {
