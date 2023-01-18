@@ -311,7 +311,6 @@ p {
 }
 
 .slide-image {
-  transform: translateX(-5000px);
   transition: all 0.5s ease-in-out;
   opacity: 0;
 }

@@ -12,7 +12,7 @@
 
 <section class="grid-container mt-4 overflow-hidden w-full h-full">
     <div class="inner-container overflow-hidden">
-        <div class="grid-items grid grid-cols-2 gap-2 w-full h-full lg:grid-cols-5 lg:gap-4 overflow-hidden">
+        <div class="grid-items grid grid-cols-2 gap-2 w-full h-full lg:grid-cols-7 lg:gap-4 overflow-hidden">
 
             <!-- Grid Item One -->
             <?php
@@ -25,7 +25,7 @@
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
 
 
-            <div id="gridOne" class="grid-item col-span-3 w-full h-52 relative md:h-80 lg:h-94">
+            <div id="gridOne" class="grid-item col-span-4 w-full h-52 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
 
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
@@ -46,7 +46,7 @@
             <!-- Grid Item -->
 
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridOne" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div id="gridOne" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']['url']) : ?>
                 <img class="w-full h-full object-cover"
@@ -74,7 +74,7 @@
               $grid_background = $gridBoxTwo['grid_background']; //  is your child group 
             ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridTwo" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div id="gridTwo" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']) : ?>
                 <img class="w-full h-full object-cover"
@@ -101,7 +101,7 @@
           ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
 
-            <div id="gridTwo" class="grid-item w-full h-52 col-span-3 relative md:h-80 lg:h-94">
+            <div id="gridTwo" class="grid-item w-full h-52 col-span-4 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
                         <?php echo $grid_title_field['grid_title']; // is a subfield of your child group ?>
@@ -128,7 +128,7 @@
               $grid_background_image = $grid_background['grid_background_image']; //  is your child group 
             ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridThree" class="grid-item col-span-3 w-full h-52 relative md:h-80 lg:h-94">
+            <div id="gridThree" class="grid-item col-span-4 w-full h-52 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
 
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
@@ -149,7 +149,7 @@
             <!-- Grid Item -->
 
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridThree" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div id="gridThree" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']) : ?>
                 <img class="w-full h-full object-cover"
@@ -177,7 +177,7 @@
               $grid_background = $gridBoxFour['grid_background']; //  is your child group 
             ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridFour" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div id="gridFour" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']) : ?>
                 <img class="w-full h-full object-cover"
@@ -208,7 +208,7 @@
             ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
 
-            <div id="gridFour" class="grid-item w-full h-52 col-span-3 relative md:h-80 lg:h-94">
+            <div id="gridFour" class="grid-item w-full h-52 col-span-4 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
 
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
@@ -237,7 +237,7 @@
               $grid_background_image = $grid_background['grid_background_image']; //  is your child group 
           ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridFive" class="grid-item col-span-3 w-full h-52 relative md:h-80 lg:h-94">
+            <div id="gridFive" class="grid-item col-span-4 w-full h-52 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
 
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
@@ -258,7 +258,7 @@
             <!-- Grid Item -->
 
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridFive" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div id="gridFive" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']) : ?>
                 <img class="w-full h-full object-cover"
@@ -286,7 +286,7 @@
               $grid_background = $gridBoxSix['grid_background']; //  is your child group 
             ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridSix" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div id="gridSix" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']) : ?>
                 <img class="w-full h-full object-cover"
@@ -312,7 +312,7 @@
             ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
 
-            <div id="gridSix" class="grid-item w-full h-52 col-span-3 relative md:h-80 lg:h-94">
+            <div id="gridSix" class="grid-item w-full h-52 col-span-4 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
 
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
@@ -341,7 +341,7 @@
               $grid_background_image = $grid_background['grid_background_image']; //  is your child group 
           ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridSeven" class="grid-item col-span-3 w-full h-52 relative md:h-80 lg:h-94">
+            <div id="gridSeven" class="grid-item col-span-4 w-full h-52 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
 
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">
@@ -362,7 +362,7 @@
             <!-- Grid Item -->
 
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div id="gridSeven" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div id="gridSeven" class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']) : ?>
                 <img class="w-full h-full object-cover"
@@ -390,7 +390,7 @@
               $grid_background = $gridBoxEight['grid_background']; //  is your child group 
             ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
-            <div class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-2 grid-item-image">
+            <div class="grid-item w-full h-52 relative md:h-80 lg:h-94 col-span-3 grid-item-image">
 
                 <?php if($grid_background['grid_background_image']) : ?>
                 <img class="w-full h-full object-cover"
@@ -417,7 +417,7 @@
           ?>
             <?php if( $grid_background['grid_background_image'] OR $grid_background['grid_background_colour'] !=='none') : ?>
 
-            <div id="gridEight" class="grid-item w-full h-52 col-span-3 relative md:h-80 lg:h-94">
+            <div id="gridEight" class="grid-item w-full h-52 col-span-4 relative md:h-80 lg:h-94">
                 <div class="grid-item-content absolute top-0 z-10 p-6 text-white lg:max-w-2xl">
 
                     <h2 class="text-xl font-primaryBold md:text-2xl lg:text-4xl">

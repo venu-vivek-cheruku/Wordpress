@@ -21,10 +21,9 @@ get_header();
             <?php
                     $args = array(
                     'post_type' => 'stockists',
-                    'orderby' => 'publish_date',
-                    'order' => 'ASC',
+                    'orderby' => 'title',
+                    'order'   => 'ASC',
                     'post_status' => 'publish',
-                    'orderby' => 'date_created',
                     'posts_per_page' => -1 // this will retrive all the post that is published
                     );
                     $loop = new WP_Query($args);

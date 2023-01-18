@@ -622,6 +622,10 @@ video {
   grid-column: span 2 / span 2;
 }
 
+.col-span-4 {
+  grid-column: span 4 / span 4;
+}
+
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
@@ -733,6 +737,10 @@ video {
 
 .w-40 {
   width: 10rem;
+}
+
+.w-52 {
+  width: 13rem;
 }
 
 .w-44 {
@@ -878,6 +886,11 @@ video {
 .bg-lincolnshireSky {
   --tw-bg-opacity: 1;
   background-color: rgb(114 176 189 / var(--tw-bg-opacity));
+}
+
+.bg-gray-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(229 231 235 / var(--tw-bg-opacity));
 }
 
 .bg-gray-100 {
@@ -1349,7 +1362,6 @@ p {
 }
 
 .slide-image {
-  transform: translateX(-5000px);
   transition: all 0.5s ease-in-out;
   opacity: 0;
 }
@@ -2053,6 +2065,10 @@ ul#a-z li:first-child {
 
   .lg\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
   }
 
   .lg\:grid-cols-5 {
