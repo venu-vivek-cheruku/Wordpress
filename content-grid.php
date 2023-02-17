@@ -12,7 +12,7 @@
 
 <section class="grid-container mt-4 overflow-hidden w-full h-full">
     <div class="inner-container overflow-hidden">
-        <div class="grid-items grid grid-cols-2 gap-2 w-full h-full lg:grid-cols-7 lg:gap-4 overflow-hidden">
+        <div class="grid-items grid grid-cols-2 gap-y-4 w-full h-full lg:grid-cols-7 lg:gap-4 overflow-hidden">
 
             <!-- Grid Item One -->
             <?php

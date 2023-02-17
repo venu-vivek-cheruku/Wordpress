@@ -1,5 +1,5 @@
 body.login {
-  background: #1f526e;
+  background: #72b0bd;
 }
 
 body.login div#login form#loginform {
@@ -21,11 +21,11 @@ a:hover {
 
 #login h1 a,
 .login h1 a {
-  background-image: url("../img/MYM-logo.png");
+  background-image: url(../images/site-logo.png);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-position: center;
-  width: 10rem;
+  width: 100%;
 }
 
 #login h1 a {
@@ -54,6 +54,7 @@ body.login div#login form#loginform input {
   -o-box-shadow: none !important;
   box-shadow: none !important;
   color: #fff;
+  margin-top: 2rem;
 }
 
 .wp-core-ui .button-primary {

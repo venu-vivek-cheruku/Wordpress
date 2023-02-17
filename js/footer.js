@@ -98,3 +98,102 @@ footerTl.from(".stamp-container", {
   x: -500,
   ease: "back",
 });
+
+let footerTl2 = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".footer-bg",
+    start: "top center", // when the top of the trigger hits the top of the viewport
+    end: "center bottom", // end after scrolling 500px beyond the start
+    // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    markers: false,
+    // once: true,
+  },
+});
+
+footerTl2.to(
+  ".backTire",
+  9,
+  {
+    rotation: "360",
+    ease: Linear.easeNone,
+    transformOrigin: "center center",
+  },
+  0.1
+);
+footerTl2.to(
+  ".frontTire",
+  9,
+  {
+    rotation: "360",
+    ease: Linear.easeNone,
+    transformOrigin: "center center",
+  },
+  0.1
+);
+
+footerTl2.to(
+  ".tractor-lr",
+  {
+    x: 1500 + "px",
+    ease: Linear.easeNone,
+    duration: 13,
+  },
+  1
+);
+
+footerTl2.to(
+  ".backTire",
+  5,
+  {
+    rotation: "-360",
+    ease: Linear.easeNone,
+    transformOrigin: "center center",
+  },
+  11
+);
+footerTl2.to(
+  ".frontTire",
+  5,
+  {
+    rotation: "-360",
+    ease: Linear.easeNone,
+    transformOrigin: "center center",
+  },
+  11
+);
+
+footerTl2.to(
+  ".tractor-lr",
+  {
+    x: 1100 + "px",
+    ease: "back",
+    duration: 10,
+  },
+  11
+);
+
+const e = document.getElementsByClassName("tractorBanner");
+
+footerTl2.to(
+  e,
+  {
+    y: 10 + "px",
+    ease: "back",
+    duration: 3,
+  },
+  {
+    y: 0 + "px",
+    ease: "back",
+    duration: 3,
+  },
+  {
+    y: -10 + "px",
+    ease: "back",
+    duration: 3,
+  },
+  1
+);
+
+// var flag = document.querySelector("#tractorBanner");
+// gsap.set(flag, { xPercent: -50 });
+// gsap.to(flag, { duration: 1.5, xPercent: 0, repeat: -1, ease: "none" });

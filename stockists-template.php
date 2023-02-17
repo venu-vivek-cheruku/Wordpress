@@ -34,7 +34,7 @@ get_header();
                     $productColor = get_field('product_colour');
                     $dataNumber = $dataNumber + 1;
                 ?>
-            <div class="stockist-item flex flex-col items-center bg-gray-100 w-full p-2 lg:w-52 h-52">
+            <div class="stockist-item flex flex-col items-center bg-gray-200 w-full p-2 lg:w-52 h-52">
                 <img class="flex-1 object-contain w-44" src="<?php echo get_field('stockists_image') ?>" alt="" />
                 <p class="text-lg font-secondary uppercase font-normal text-center">
                     <?php echo get_the_title(); ?>
